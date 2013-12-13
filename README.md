@@ -11,8 +11,16 @@ This is a sample application used for learning performance testing.
 
 10 concurrent connections that will each run 100 requests:
 
+**GET request**
+
 ```plain
 ab -n 100 -c 10 http://0.0.0.0:9000/
+```
+
+**POST request**
+
+```plain
+ab -n 10 -c 2 -p data/small.json -T 'application/json' http://0.0.0.0:9000/
 ```
 
 ## Test different servers
