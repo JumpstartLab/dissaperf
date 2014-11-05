@@ -26,7 +26,7 @@ class App < Sinatra::Base
     "Received #{data.size} people's contact information."
   end
 
-  get '/slow' do
+  get '/slow/?' do
     sleep(rand)
     "Hello, finally!"
   end
