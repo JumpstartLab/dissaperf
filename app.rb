@@ -1,7 +1,11 @@
+require "pry"
 require 'json'
 require 'logger'
 
 class App < Sinatra::Base
+  before do
+    request.path_info = request.path_info.sub(/\/$/,"")
+  end
   #configure do
     #LOGGER = Logger.new("log/performance.log")
   #end
@@ -26,7 +30,7 @@ class App < Sinatra::Base
     "Received #{data.size} people's contact information."
   end
 
-  get '/slow/?' do
+  get '/slow' do
     sleep(rand)
     "Hello, finally!"
   end
